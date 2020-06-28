@@ -1,21 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>COMP1006 - Week 4 - Let's Connect </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Quicksand&display=swap" rel="stylesheet">
-    <!-- Compiled and minified JavaScript -->
-    <link href="main.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
-    <header>
-      <h1> TuneShare - Share Your Fave Tunes & Join The Community </h1>
-    </header>
+<?php require_once('header.php'); ?>
+      <h1>Lab 6</h1>
     <main>
         <?php
 
@@ -24,6 +8,8 @@ $first_name = filter_input(INPUT_POST, 'fname');
 $last_name = filter_input(INPUT_POST, 'lname');
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
+      $id = null;
+$id = filter_input(INPUT_POST, 'user_id');
 //set up a flag variable
 
 $ok = true;
@@ -63,13 +49,16 @@ if ($ok === true) {
         $statement->bindParam(':lastname', $last_name);
         $statement->bindParam(':email', $email);
 
-
+          //if we are updating, bind :user_id
+        if(!empty($id)) {
+            $statement->bindParam(':user_id', $id);
+        }
 
         // executing the query
         $statement->execute();              // fill in the correct method
 
         // show message
-        echo "<p> Song added! Thanks for sharing! </p>";
+        echo "<p> Thanks for sharing! </p>";
 
         // Closing the Database connection
        $statement ->closeCursor();          // fill in the correct method
@@ -81,15 +70,10 @@ if ($ok === true) {
         echo "<p> Sorry! We weren't able to process your submission at this time. We've alerted our admins and will let you know when things are fixed! </p> ";
         echo $error_message;
         //email app admin with error
-        mail('sunkararohith008@gmail.com', 'App Error ', 'Error :'. $error_message);
+        mail('sunkararohith008@gmail.com', 'Error-Lab6 ', 'Error :'. $error_message);
     }
 }
 ?>
     <a href="index.php" class="error-btn"> Back to Form </a>
     </main>
-    <footer>
-      <p> &copy; 2020 Lab Five </p>
-    </footer>
-   </div><!--end container-->
-  </body>
-</html>
+    <?php require_once('footer.php'); ?>
