@@ -59,6 +59,23 @@ ALTER TABLE `persons`
 --
 ALTER TABLE `persons`
   MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  
+  CREATE TABLE `users`(
+	`id` int(10) NOT NULL,
+	`username` varchar(100) NOT NULL,
+    `password` varchar(100) NOT NULL
+);
+
+INSERT INTO `users`(`id`, `username`, `password`) VALUES
+(16, 'Rohith', 'laxmi'),
+(17, 'Sunkara', 'gopi');
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+  
+  ALTER TABLE `users`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
