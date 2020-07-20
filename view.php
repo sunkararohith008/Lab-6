@@ -1,5 +1,7 @@
 
+<?php require_once('auth.php'); ?>
 <?php require_once('header.php'); ?>
+<?php require_once('navigation.php'); ?>
       <h1>Lab 6</h1>
       <h2> COMP1006_SUMMER2020 </h2>
     <main>
