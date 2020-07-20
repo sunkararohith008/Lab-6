@@ -1,6 +1,6 @@
 <?php require_once('header.php'); ?>
 <?php require_once('navigation.php'); ?>
-    <h1>Lab 6</h1>
+    <h1>Lab 9</h1>
     <h2> COMP1006_SUMMER2020 </h2>
     <?php
     //initialize variables
@@ -38,12 +38,16 @@
       <form action="process.php" method="post">
         <!-- add hidden input with user id if editing -->
         <input type="hidden" name="user_id" value="<?php echo $id;?>">
-        <label for="fname"> Your First Name  </label>
-        <input type="text" name="fname" class="form-control" id="fname"<?php echo $firstname; ?>">
-        <label for="lname"> Your Last Name  </label>
-        <input type="text" name="lname" class="form-control" id="lname"<?php echo $lastname; ?>">
-        <label for="email"> Your Email </label>
-        <input type="email" name="email" class="form-control" id="email"<?php echo $email; ?>">
+        <!-- First Name -->
+        <label for="fname"> First Name  </label>
+        <input type="text" name="fname" class="form-control" id="fname" value="<?php echo $firstname; ?>">
+        <!-- Last Name -->
+        <label for="lname"> Last Name  </label>
+        <input type="text" name="lname" class="form-control" id="lname" value="<?php echo $lastname; ?>">
+        <!-- Email -->
+        <label for="email"> Email </label>
+        <input type="email" name="email" class="form-control" id="email" value="<?php echo $email; ?>">
+        <!-- Submit the form -->
         <input type="submit" name="submit" value="Send & Share" class="btn">
       </form>
     </main>
